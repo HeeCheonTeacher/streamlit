@@ -20,13 +20,13 @@ def plot_population(data, region):
     ages = [i for i in range(len(population))]
 
     # 그래프 그리기
-    plt.figure(figsize=(10, 6))
-    plt.bar(ages, population)
-    plt.title(f'{region} 지역의 인구 구조')
-    plt.xlabel('연령대 (0세 ~ 100세 이상)')
-    plt.ylabel('인구수')
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
-    st.pyplot(plt)
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.bar(ages, population)
+    ax.set_title(f'{region} 지역의 인구 구조')
+    ax.set_xlabel('연령대 (0세 ~ 100세 이상)')
+    ax.set_ylabel('인구수')
+    ax.grid(axis='y', linestyle='--', alpha=0.7)
+    st.pyplot(fig)
 
 # Streamlit UI 설정
 st.title('우리 지역 인구 구조 알아보기')
